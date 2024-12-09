@@ -37,7 +37,7 @@ Route::get('rentedrooms/search', [RentedroomController::class, 'search'])->name(
 Route::get('/rentedrooms', [RentedroomController::class, 'index'])->name('rentedrooms.index');
 
 //User
-Route::resource('users',UserController::class)->only([
+Route::resource('users', UserController::class)->only([
     'index',
 ]);
 
