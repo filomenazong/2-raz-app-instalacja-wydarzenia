@@ -8,10 +8,17 @@ class UserController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', User::class);
-
+        
         return view(
-            'users.index'
+            'users.index',
+            
+            [
+                'users' => User::paginate(
+                    //config('pagination.default') //dobrze przechowywać w pliku konf
+                    10
+                )        
+            ]
+        
         );
-    }
+    }    
 }
