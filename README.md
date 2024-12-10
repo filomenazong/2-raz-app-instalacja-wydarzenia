@@ -103,3 +103,6 @@ php artisan route:cache
 php artisan route:clear
 
 php artisan optimize
+
+###nasłuchiwanie na formularzach blaidowych
+sail npm run dev
