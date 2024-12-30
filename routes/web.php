@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RentedroomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,3 +16,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+/*
+Route::name('users.')->prefix('users')->group(function () {
+    Route::get('', [UserController::class, 'index'])
+        ->name('index');
+});
+*/
+
+Route::resource('rentedrooms', RentedroomController::class)->only([
+    'index',
+]);
