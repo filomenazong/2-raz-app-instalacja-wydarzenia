@@ -67,5 +67,28 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Nasłuchiwanie na setach na css
 sail npm run dev
+## po zmianach routingu
+php artisan route:clear
+php artisan route:cache
 
+ php artisan optimize:clear
+ # or
+ php artisan config:clear
 
+### odświerz casch
+
+#### komendys
+sail artisan route:cache
+sail artisan route:cache
+sail artisan route:clear
+
+sail artisan optimize
+
+php artisan route:cache
+php artisan route:cache
+php artisan route:clear
+
+php artisan optimize
+
+###nasłuchiwanie na formularzach blaidowych
+sail npm run dev
