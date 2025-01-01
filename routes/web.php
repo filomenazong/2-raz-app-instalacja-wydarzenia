@@ -26,9 +26,20 @@ Route::get('rentedrooms/search', [RentedroomController::class, 'search'])->name(
 Route::get('/rentedrooms', [RentedroomController::class, 'index'])->name('rentedrooms.index');
 
 //User
+/*
 Route::resource('users', UserController::class)->only([
     'index',
 ]);
 
 Route::get('users/search',[UserController::class, 'search'] )->name('users.search');
 Route::get('/users',[UserController::class, 'index']) ->name('users.index');
+
+Route::name('users.')->prefix('users')->group(function (){
+        Route::get('', [UserController::class, 'index'])
+            ->name('index');
+});
+*/
+
+Route::resource('users', UserController::class)->only(['index']);
+    Route::get('users/search', [UserController::class, 'search'])->name('users.search');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');

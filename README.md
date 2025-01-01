@@ -92,3 +92,14 @@ php artisan optimize
 
 ###nasłuchiwanie na formularzach blaidowych
 sail npm run dev
+## uruchom
+sail up -d
+./vendor/bin/sail up -d
+### wyłacz
+Bibliografia
+Zatrzymywanie i usuwanie kontenera/ów
+sail down
+./vendor/bin/sail down
+
+### komenda sail 
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
