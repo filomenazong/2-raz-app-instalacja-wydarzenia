@@ -93,7 +93,7 @@ final class UserTable extends PowerGridComponent
     {
         return [
             Button::add('assignAdminRoleAction')
-                ->slot(Blade::render('<x-wireui-icon name="shield-check" class="w-5 h-5" mini />'))
+                ->slot(Blade::render('< button />'))
                 ->tooltip(__('users.actions.assign_admin_role'))
                 ->class('text-gray-500')
                 ->dispatch('assignAdminRoleAction', ['id' => $user->id]),
