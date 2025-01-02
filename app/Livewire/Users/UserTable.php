@@ -3,14 +3,18 @@
 namespace App\Livewire\Users;
 
 use App\Models\User;
+use App\Enums\Auth\RoleType;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Facades\Filter;
-use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
+use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
+
 
 final class UserTable extends PowerGridComponent
 {
@@ -76,21 +80,23 @@ final class UserTable extends PowerGridComponent
         return [
         ];
     }
-
+//przykładowa akcja
+//assignAdminRoleAction
     #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
+    public function assignAdminRoleAction($id): void
     {
-        $this->js('alert('.$rowId.')');
+        //$this->authorize('update', Auth::user());
+        User::findOrFail($id)->assignRole(RoleType::ADMIN->value);
     }
 
-    public function actions(User $row): array
+    public function actions( User $user): array
     {
         return [
-            Button::add('edit')
-                ->slot('Edit: '.$row->id)
-                ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+            Button::add('assignAdminRoleAction')
+                ->slot(Blade::render('<x-wireui-icon name="shield-check" class="w-5 h-5" mini />'))
+                ->tooltip(__('users.actions.assign_admin_role'))
+                ->class('text-gray-500')
+                ->dispatch('assignAdminRoleAction', ['id' => $user->id]),
         ];
     }
 
