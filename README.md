@@ -103,3 +103,16 @@ sail down
 
 ### komenda sail 
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
+#### odświerzenie routingu
+https://stackoverflow.com/questions/37878951/how-to-clear-laravel-route-caching-on-server
+
+php artisan route:cache
+php artisan route:clear
+php artisan cache:clear
+
+php artisan route:cache
+php artisan cache:clear
+php artisan route:clear
+### migracje od nowa
+ php artisan migrate:fresh --seed

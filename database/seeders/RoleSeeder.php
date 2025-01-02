@@ -25,7 +25,7 @@ class RoleSeeder extends Seeder
         Role::create(['name' => RoleType::ADMIN]);
         Role::create(['name' => RoleType::WORKER]);
         Role::create(['name' => RoleType::USER]);
-/*
+
         
         //Dla kazdej roli nadawene uprawnia
         // ADMINISTRATOR SYSTEMU
@@ -57,7 +57,7 @@ class RoleSeeder extends Seeder
         //$userRole->givePermissionTo(PermissionType::RENTEDROOM_ACCESS->value);
         $userRole->givePermissionTo(PermissionType::EQUIPMENT_ACCESS->value);
         //$userRole->givePermissionTo(PermissionType::RENTALLOG_ACCESS->value);
-    */    
+       
 
     }
 }
